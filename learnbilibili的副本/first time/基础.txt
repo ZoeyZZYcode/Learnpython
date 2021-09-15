@@ -1,0 +1,173 @@
+快捷键
+多行(取消)注释command+/
+取消缩进shfit+tab
+
+字符串：
+1.
+s = f"我叫{name},年龄{age}"#f-string
+s = "我叫{},年龄{}".format(name, age)
+s = "我叫%s,年龄%d" % (name, age)#只有一项不用括号
+2.
+[]：索引-1倒数最后一个，正数从0开始。
+[::-]:从右往左
+3.
+s.capitalize()首字母大写
+s.title()单词首字母大写
+s.lower()全小写
+s.upper()全大写$常用
+4.
+s.strip()去掉两边空格,\t,\n
+s.replace(old,new)去掉空格(" ","")
+s.split("_") $结果列表，用什么切会损失啥
+5.
+s.find() $ 返回位置，-1不存在
+s.index()$ 仅返回位置
+in/not in $条件判断
+s.startswith()$是否以某某开头、
+s.endswith()
+s.isdigit()由整数组成
+s.isdecimal()
+6.
+"_".join()列表连接
+len()长度
+type()类型
+7
++连接
+
+
+列表
+1.[],隔开
+2.
+lst.append()在后面添加
+lst.insert(0,"xx")位置插入
+lst.extend()合并两个列表
+lst.pop()删除位置，返回被删元素
+lst.remove()元素
+lst[]="" 直接索引修改/查询
+3.
+lst.sort(reverse=True)#默认升顺序 reverse翻转
+
+
+元组
+1.
+()不可变的列表#不允许外界修改
+2.
+只有一个元素默认优先级，要在元素末尾加逗号
+3.
+元素是列表，列表可变
+
+set
+1.
+{}要放东西否则是dict，无序，list,dict,set不可哈希
+hashable：不可变的数据类型int,str,tuple,bool。
+2.
+set()
+s.add()
+s.remove()先删再增
+s.pop()#无序无法验证扔谁
+&交 s.intersection()
+| s.union()
+- s.difference()
+可以去除重复
+lst(set(lst))无序
+
+
+Dict：键值对存
+1.{key:value,key2:value}key必须是可哈希
+2.dict[key]返回值
+3.dic.setdefault(key,value) #设置默认值，以前有了就不起作用
+4.
+dic.pop(key)
+del dic[key]
+dic[key]报错
+dic.get(key)none
+5.
+for 循环
+for key in dic:
+    print(key,dic[key])
+dic.keys()
+dic.values()
+dic.items()
+6.
+a,b=(1,2)解包，解构元祖or列表
+for item(key,value) in dic.items():
+    key,value=item
+直接拿到字典的key和value
+7.
+循环删除
+
+
+运算
+1.
+a ,b=b,a 仅python
+2.
+and or not优先级()>not>and>or
+3.
+in/not in
+
+
+文件操作
+1.open(path, mode='',encoding='')
+    path:绝对/相对当前程序所在的
+        ../上层
+    mode: r read
+          w write 自动创建/清空
+          a append
+          b 非文本文件 bytes
+    with open as f:自己会关
+        for line in f
+    encoding="utf-8"
+f.close()
+
+2.f.readline().strip
+print自己会换行
+for line in f:
+    print(line.strip())
+
+3.f.write
+
+4.复制
+with open as f1, \(表示与下面是一行)
+       open as f2:
+    for line in f1:
+        f2.write(line)
+
+5.修改
+with open as f1,\
+     open as f2:
+     for line in f1:
+         line = line.strip()
+         if line.startswith("周")：
+            line=line.replace("","")
+         f2.write(line)
+         f2.write("\n")
+#删除源文件
+os.remove()
+#rename
+os.rename("o","n")
+import os
+import time
+
+time.sleep(3) 休眠3s
+
+
+Bytes
+1. 1byte=8bit
+ascii 128 7位 首位0
+ANSI 16bit 00000000 0xxxxxxxx 2^16
+gb2312->gbk(win)
+Unicode:全球统一
+utf可变长度的unicode
+utf-8：
+ en：8bit 1byte
+ er：16bit 2bytes
+ cn：24bit 3bytes
+utf-16：
+
+gbk->utf-8
+
+s.encode("gbk") b'xxxx'bytes 类型
+bs.decode("")
+
+
+
